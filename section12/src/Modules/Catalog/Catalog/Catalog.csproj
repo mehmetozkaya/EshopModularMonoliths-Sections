@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Shared\Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Products\Features\DeleteProduct\" />
+    <Folder Include="Products\Features\GetProducts\" />
+    <Folder Include="Products\Features\GetProductById\" />
+    <Folder Include="Products\Features\GetProductByCategory\" />
+    <Folder Include="Products\Features\UpdateProduct\" />
+  </ItemGroup>
+
+</Project>

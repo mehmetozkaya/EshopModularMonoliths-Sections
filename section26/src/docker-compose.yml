@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  eshopdb:
+    image: postgres
+
+  distributedcache:
+    image: redis
+
+  seq:
+    image: datalust/seq:latest
+
+  messagebus:
+    image: rabbitmq:management
+
+  identity:
+    image: quay.io/keycloak/keycloak:24.0.3
+
+  api:
+    image: ${DOCKER_REGISTRY-}api
+    build:
+      context: .
+      dockerfile: Bootstrapper/Api/Dockerfile
+
+volumes:
+  postgres_eshopdb:

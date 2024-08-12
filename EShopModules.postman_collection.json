@@ -1,0 +1,560 @@
+{
+	"info": {
+		"_postman_id": "cb725334-afec-4c82-b5c9-2dcfbd02bcde",
+		"name": "EShopModules",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2848550"
+	},
+	"item": [
+		{
+			"name": "Catalog",
+			"item": [
+				{
+					"name": "Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Product\":\r\n    {\r\n        \"Name\": \"New Product A\",\r\n        \"Category\": [\"c1\", \"c2\"],\r\n        \"Description\": \"Description Product A\",\r\n        \"ImageFile\": \"ImageFile Product A\",\r\n        \"Price\": 199\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{eshop_url}}/products",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Product\":\r\n    {\r\n        \"Id\": \"4e925682-b1e7-47d5-bc3d-afbb2a66dece\",\r\n        \"Name\": \"New Product A Updated\",\r\n        \"Category\": [\"c1\", \"c2\", \"c3\"],\r\n        \"Description\": \"Description Product A Updated\",\r\n        \"ImageFile\": \"ImageFile Product A Updated\",\r\n        \"Price\": 250\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{eshop_url}}/products",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product IPhone",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Product\":\r\n    {\r\n        \"Id\": \"5334c996-8457-4cf0-815c-ed2b77c4ff61\",\r\n        \"Name\": \"IPhone X\",\r\n        \"Category\": [\"category1\"],\r\n        \"Description\": \"Description Product IPhone X Updated\",\r\n        \"ImageFile\": \"ImageFile_IPhone_X_Updated\",\r\n        \"Price\": 555\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{eshop_url}}/products",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Products with Pagination",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{eshop_url}}/products?PageIndex=0&PageSize=2",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "PageIndex",
+									"value": "0"
+								},
+								{
+									"key": "PageSize",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{eshop_url}}/products/5334c996-8457-4cf0-815c-ed2b77c4ff61",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"products",
+								"5334c996-8457-4cf0-815c-ed2b77c4ff61"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{eshop_url}}/products/0f38283c-bcd7-45f7-8f7f-d636472ef6a1",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"products",
+								"0f38283c-bcd7-45f7-8f7f-d636472ef6a1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductByCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{eshop_url}}/products/category/category1",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"products",
+								"category",
+								"category1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Basket",
+			"item": [
+				{
+					"name": "Basket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYdEZ0ZjFYeVh2SFZuazdEUjlIWm1salIzZ0FDd1gxS3cyR0JIYmd1VDJBIn0.eyJleHAiOjE3MTc1ODcxMzAsImlhdCI6MTcxNzU4NjgzMCwianRpIjoiMmRlMDE0OTgtY2IyZi00ODU1LWI2NjctYmZiMWNjOWM3MDc0IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9teXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImM2OTA0ODM3LWQ2NTctNDczMS1hN2JlLWU3MzJkNTc0YWY3NyIsInR5cCI6IkJlYXJlciIsImF6cCI6Im15Y2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6IjI2MGEzNGYyLWIxZDUtNDI0NC1iOGFkLTE2MTQ4MzgyODlhMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly93d3cua2V5Y2xvYWsub3JnIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLW15cmVhbG0iLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiMjYwYTM0ZjItYjFkNS00MjQ0LWI4YWQtMTYxNDgzODI4OWEwIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoibXl1c2VyIG15dXNlciIsInByZWZlcnJlZF91c2VybmFtZSI6Im15dXNlciIsImdpdmVuX25hbWUiOiJteXVzZXIiLCJmYW1pbHlfbmFtZSI6Im15dXNlciIsImVtYWlsIjoibXl1c2VyQG15dXNlci5jb20ifQ.aKteh9iFwMRnRI20shsTGXZE7_uTSnEmgmGgc8Xbwr74X3xrCRbEEIuov9708sQHXEgqK782JPkpO4pJQXKxLtLy9GwimxHj58iePZ6WQk8JRermH5Ptj-9gU_4L8LH5FSGyBqwQxfYkPTxOHUhzNbmxepXfsMq68FgSwz18kb08iQCwg32CeVIMxfooWSIP8gCfja_QvoipO2-AL47eRjdoV7bRjP9xQEYYUjEK0_QAFJfzgD10zGgkZ2Em_WAl2x-8TgH39UCWZxR5SGG4DgBT9V-TwG4BTmjp2x6xTXUwMooe4l5DU5Dfs0wpGxfRCZFTtStI7WchMUkL0anZKA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"ShoppingCart\": \r\n    {\r\n        \"UserName\": \"swn\",\r\n        \"Items\": [\r\n            {\r\n                \"ProductId\": \"5334c996-8457-4cf0-815c-ed2b77c4ff61\",\r\n                \"Quantity\": 2,\r\n                \"Color\": \"Red\",\r\n                \"Price\": 500,\r\n                \"ProductName\": \"IPhone X\"\r\n            },\r\n            {\r\n                \"ProductId\": \"c67d6323-e8b1-4bdf-9a75-b0d0d2e7e914\",\r\n                \"Quantity\": 1,\r\n                \"Color\": \"Blue\",\r\n                \"Price\": 500,\r\n                \"ProductName\": \"Samsung 10\"\r\n            }\r\n        ]  \r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{eshop_url}}/basket",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"basket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Basket Checkout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJYdEZ0ZjFYeVh2SFZuazdEUjlIWm1salIzZ0FDd1gxS3cyR0JIYmd1VDJBIn0.eyJleHAiOjE3MTc1ODkwNjYsImlhdCI6MTcxNzU4ODc2NiwianRpIjoiNGQ2ZjQ0NTgtZTgxNy00YTAyLThhNDMtZWI0ZjE3MDcwM2E4IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL3JlYWxtcy9teXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImM2OTA0ODM3LWQ2NTctNDczMS1hN2JlLWU3MzJkNTc0YWY3NyIsInR5cCI6IkJlYXJlciIsImF6cCI6Im15Y2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6ImI0YmZiNTNmLTllYTQtNDFkNi1iOGFkLWIzOWJjY2YzMjQyMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly93d3cua2V5Y2xvYWsub3JnIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLW15cmVhbG0iLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiYjRiZmI1M2YtOWVhNC00MWQ2LWI4YWQtYjM5YmNjZjMyNDIwIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoibXl1c2VyIG15dXNlciIsInByZWZlcnJlZF91c2VybmFtZSI6Im15dXNlciIsImdpdmVuX25hbWUiOiJteXVzZXIiLCJmYW1pbHlfbmFtZSI6Im15dXNlciIsImVtYWlsIjoibXl1c2VyQG15dXNlci5jb20ifQ.TgZ_IglTg0SLR6SxKPwoNOQgSG8alZD21IK3HDxcZMRWg1zL3ArOWYdhVddCMh3sf76yHluohFwwXsAlqFMzjHTevUWnQH-ztNtY6XGsc-uXFYjn8xajs2Qfz1cTmTjY_ynIctjnhIz4pyFOwiUtyL4oOKuZcC9054zRxdewIMvVEIzBAob7R4Fwai-FpSCOWepKYkfSxqKMVoXFjzHnBLPBp7yynLw9McsfNxsijnAG0sAhxWaXxEFwE5EAPn375itS7IE5mNYBLihOMPZRGB5ekOJ08l1MnScz1qBv-rOiK1PUljcxQ9kKs2DPZ3BbfFRIYTClBsm3Ku9r2gljPQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"BasketCheckout\": \r\n        {\r\n\t\t  \"userName\": \"myuser\",\r\n\t\t  \"CustomerId\": \"189dc8dc-990f-48e0-a37b-e6f2b60b9d7d\",\r\n\t\t  \"totalPrice\": 0,\r\n\t\t  \"firstName\": \"swn\",\r\n\t\t  \"lastName\": \"swn\",\r\n\t\t  \"emailAddress\": \"test@test.com\",\r\n\t\t  \"addressLine\": \"34 Charles Street\",\r\n\t\t  \"country\": \"USA\",\r\n\t\t  \"state\": \"Michigan\",\r\n\t\t  \"zipCode\": \"48198\",\r\n\t\t  \"cardName\": \"swn\",\r\n\t\t  \"cardNumber\": \"485-3184\",\r\n\t\t  \"expiration\": \"11/30\",\r\n\t\t  \"cvv\": \"333\",\r\n\t\t  \"paymentMethod\": 1\r\n\t\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{eshop_url}}/basket/checkout",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"basket",
+								"checkout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Basket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{eshop_url}}/basket/swn",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"basket",
+								"swn"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Basket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{eshop_url}}/basket/swn",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"basket",
+								"swn"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddItemIntoBasket Existing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ShoppingCartItem\": \r\n  {\r\n    \"ProductId\": \"5334c996-8457-4cf0-815c-ed2b77c4ff61\",\r\n    \"Quantity\": 2,\r\n    \"Color\": \"Red\",\r\n    \"Price\": 500,\r\n    \"ProductName\": \"IPhone X\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{eshop_url}}/basket/swn/items",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"basket",
+								"swn",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddItemIntoBasket New",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ShoppingCartItem\": \r\n  {\r\n    \"ProductId\": \"6ec1297b-ec0a-4aa1-be25-6726e3b51a27\",\r\n    \"Quantity\": 3,\r\n    \"Color\": \"Black\",\r\n    \"Price\": 460,\r\n    \"ProductName\": \"Xiaomi Mi\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{eshop_url}}/basket/swn/items",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"basket",
+								"swn",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RemoveItemFromBasket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{eshop_url}}/basket/swn/items/6ec1297b-ec0a-4aa1-be25-6726e3b51a27",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"basket",
+								"swn",
+								"items",
+								"6ec1297b-ec0a-4aa1-be25-6726e3b51a27"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Identity",
+			"item": [
+				{
+					"name": "Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "myclient",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "myuser",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "BfDLdVcw5pVU3HOxqyyCoyItiPOY03X6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9090/realms/myrealm/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"realms",
+								"myrealm",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token client_credentials",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "myclient",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "BfDLdVcw5pVU3HOxqyyCoyItiPOY03X6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9090/realms/myrealm/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"realms",
+								"myrealm",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ordering",
+			"item": [
+				{
+					"name": "Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Order\": \r\n  {\r\n    \"CustomerId\": \"58c49479-ec65-4de2-86e7-033c546291aa\",\r\n    \"OrderName\": \"ORD\",\r\n    \"ShippingAddress\": \r\n      {\r\n        \"FirstName\": \"Valentina\",\r\n        \"LastName\": \"Legros\",\r\n        \"EmailAddress\": \"valeg@xmail.com\",\r\n        \"AddressLine\": \"Wiegand Pass Suite 825\",\r\n        \"Country\": \"USA\",\r\n        \"State\": \"Oklahoma\",\r\n        \"ZipCode\": \"41248\"\r\n      },\r\n    \"BillingAddress\": \r\n      {\r\n        \"FirstName\": \"Valentina\",\r\n        \"LastName\": \"Legros\",\r\n        \"EmailAddress\": \"valeg@xmail.com\",\r\n        \"AddressLine\": \"Wiegand Pass Suite 825\",\r\n        \"Country\": \"USA\",\r\n        \"State\": \"Oklahoma\",\r\n        \"ZipCode\": \"41248\"\r\n      },\r\n    \"Payment\": \r\n      {\r\n        \"CardName\": \"CARD_1\",\r\n        \"CardNumber\": \"875-444-3739\",\r\n        \"Expiration\": \"12/29\",\r\n        \"Cvv\": \"455\",\r\n        \"PaymentMethod\": 1\r\n      },\r\n    \"Items\": [\r\n        {\r\n          \"ProductId\": \"5334c996-8457-4cf0-815c-ed2b77c4ff61\",\r\n          //\"ProductName\": \"IPhone X\",\r\n          \"Quantity\": 2,\r\n          \"Price\": 500\r\n        },\r\n        {\r\n          \"ProductId\": \"c67d6323-e8b1-4bdf-9a75-b0d0d2e7e914\",\r\n          //\"ProductName\": \"Samsung 10\",\r\n          \"Quantity\": 1,\r\n          \"Price\": 500\r\n        }\r\n    ]  \r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{eshop_url}}/orders",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Orders with Pagination",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{eshop_url}}/orders?PageIndex=0&PageSize=2",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "PageIndex",
+									"value": "0"
+								},
+								{
+									"key": "PageSize",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{eshop_url}}/orders/ec5367ca-0f3b-4fcb-9ed6-5f71368dbcfc",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"orders",
+								"ec5367ca-0f3b-4fcb-9ed6-5f71368dbcfc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{eshop_url}}/orders/ec5367ca-0f3b-4fcb-9ed6-5f71368dbcfc",
+							"host": [
+								"{{eshop_url}}"
+							],
+							"path": [
+								"orders",
+								"ec5367ca-0f3b-4fcb-9ed6-5f71368dbcfc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
